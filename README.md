@@ -23,15 +23,47 @@ You are tasked with designing and implementing a video segmentation pipeline tha
 - Proficiency in Python programming language and familiarity with computer vision and machine learning libraries (e.g., OpenCV, TensorFlow, PyTorch).
 - Experience with video processing techniques and libraries.
 - Knowledge of object detection, scene recognition, and other relevant computer vision tasks.
+# Video Shot Boundary Detection
 
-## Deliverables
+## Overview
 
-1. A well-documented and modular codebase for the video segmentation tool.
+The Video Shot Boundary Detection script is a Python program designed to analyze a video file and detect shot boundaries based on differences in frame intensity. It utilizes the OpenCV library for video processing tasks.
+
+## Usage
+
+To use the script, follow the steps below:
+
+1. Run main.py (You can adjust the path to the video file by editing this script)
+
+2. Upon execution, the script will analyze the input video, detect shot boundaries, optimize the detected boundaries, and save the clips to the output folder.
+
+## Dependencies
+
+- Python 3.x
+- OpenCV (cv2)
+- NumPy (np)
+
+## Functionality
+
+The Video Shot Boundary Detection script performs the following steps:
+
+1. Opens the input video file using OpenCV's `VideoCapture` object.
+
+2. Converts each frame of the video to the LUV color space using the `convert_to_luv()` function.
+
+3. Calculates the mean frame difference between consecutive frames using the `calculate_mean_frame_difference()` function.
+
+4. Stores the frame difference values along with frame IDs in a list.
+
+5. Detects possible shot boundaries based on sudden changes in intensity using the `find_possible_frame()` method of the `Frame` class.
+
+6. Optimizes the detected shot boundaries using the `optimize_frame()` method of the `Frame` class.
+
+7. Uses the boundaries list with OpenCV's `VideoCapture` object to generate the shortenend clips which is saved within the ouput folder
+
 
 ## Resources
 
 - OpenCV documentation: https://docs.opencv.org/
 - TensorFlow Object Detection API: https://github.com/tensorflow/models/tree/master/research/object_detection
 - PyTorch documentation: https://pytorch.org/docs/stable/index.html
-
-Please note that this is a challenging task, and you may need to research and explore additional resources and techniques to accomplish the desired functionality. Feel free to reach out if you have any questions or need further clarification.
