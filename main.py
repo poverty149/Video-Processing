@@ -101,6 +101,6 @@ def split_video(video_path, boundaries):
     cap.release()
     
 if __name__ == "__main__":
-    video_path = "../sample.mp4"  # Update with the path to your video file
+    video_path = "./sample.mp4"  # Update with the path to your video file
     detect_shot_boundaries(video_path)
     
